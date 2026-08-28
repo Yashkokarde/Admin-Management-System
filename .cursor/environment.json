@@ -1,0 +1,21 @@
+{
+  "name": "Admin Management System",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "user": "ubuntu",
+  "install": "./.cursor/install.sh",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "python3 web/serve.py"
+    }
+  ],
+  "ports": [
+    {
+      "port": 8080,
+      "name": "Admin Web App"
+    }
+  ]
+}
