@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Management System</title>
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <style>
+    .hero { max-width: 980px; margin: 0 auto; padding: 64px 24px 40px; }
+    .hero h1 { font-family: Georgia, serif; font-size: clamp(36px, 6vw, 58px); letter-spacing: -0.04em; margin: 0 0 12px; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 58ch; }
+    .cta { display: flex; gap: 12px; margin: 28px 0 48px; flex-wrap: wrap; }
+    .cta .btn-primary { width: auto; padding: 12px 22px; }
+    .compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 800px) { .compare { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <strong>AdminOS · Management System</strong>
+    <a class="btn btn-primary btn-small" href="pages/examples/logout.html">Sign in</a>
+  </header>
+  <main class="hero">
+    <div class="tag" style="letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);font-size:12px;">Roles · Directory · Tasks · Audit</div>
+    <h1>Run the back office without switching tools.</h1>
+    <p>This workspace replaces the old JavaByKiran AdminLTE demo with a working site: the original login, users, operators, links, and downloads — plus role-based access, task tracking, CSV export, and an audit trail that internal-tool products treat as table stakes.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="pages/examples/logout.html">Open the live workspace</a>
+      <a class="btn btn-ghost btn-small" href="pages/examples/register.html">Register a membership</a>
+    </div>
+    <div class="compare">
+      <article class="card"><h3>vs JavaByKiran liveproject</h3><p class="muted">Same screens QA already automates (login copy, email field, user table, operator roster). Data now actually saves, deletes, and filters.</p></article>
+      <article class="card"><h3>vs Retool / Appsmith</h3><p class="muted">No per-seat tax for a directory and a board. Self-contained in the browser; ship it as static files.</p></article>
+      <article class="card"><h3>vs Asana / Jira</h3><p class="muted">Task kanban lives next to the people who do the work — operators, courses, and downloads — not in a second product.</p></article>
+    </div>
+  </main>
+</body>
+</html>
