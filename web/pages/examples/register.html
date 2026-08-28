@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaByKiran | Registration Page</title>
+  <link rel="stylesheet" href="../../assets/css/app.css" />
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-brand">
+      <div>
+        <div class="tag">JAVA | SELENIUM | PYTHON</div>
+        <h1>Java By Kiran</h1>
+        <p>Create a membership to enter the admin workspace. New accounts start as viewers until an admin promotes them.</p>
+      </div>
+    </div>
+    <div class="login-panel">
+      <div class="login-card">
+        <h2>Register a new membership</h2>
+        <p class="login-box-msg">Fill in your details to join the directory.</p>
+        <div id="flash"></div>
+        <form id="reg-form">
+          <div class="field"><label for="name">Name</label><input id="name" required /></div>
+          <div class="field"><label for="mobile">Mobile</label><input id="mobile" required /></div>
+          <div class="field"><label for="email">Email</label><input id="email" type="email" required /></div>
+          <div class="field"><label for="password">Password</label><input id="password" type="password" required /></div>
+          <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+        <p class="hint"><a href="logout.html">I already have a membership</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/js/store.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script>
+    document.getElementById("reg-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const res = UI.register({
+        name: document.getElementById("name").value.trim(),
+        mobile: document.getElementById("mobile").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value
+      });
+      if (!res.ok) {
+        document.getElementById("flash").innerHTML = '<div class="alert alert-bad">' + res.message + "</div>";
+        return;
+      }
+      location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>
