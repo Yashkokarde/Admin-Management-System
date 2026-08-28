@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaByKiran | Log in</title>
+  <link rel="stylesheet" href="../../assets/css/app.css" />
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-brand">
+      <div>
+        <div class="tag">JAVA | SELENIUM | PYTHON</div>
+        <h1>Java By Kiran</h1>
+        <p>Admin Management System — roles, user directory, operator roster, downloads, and task tracking in one place.</p>
+      </div>
+      <p>Use kiran@gmail.com / 123456 for a full admin session.</p>
+    </div>
+    <div class="login-panel login-card">
+      <h2>Sign in</h2>
+      <p class="login-box-msg">Sign in to start your session</p>
+      <div id="flash"></div>
+      <form id="login-form">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <button class="btn btn-primary" type="submit" id="signin">Sign In</button>
+      </form>
+      <p class="hint"><a href="register.html">Register a new membership</a></p>
+      <div class="demo-creds">
+        Admin: <code>kiran@gmail.com</code> / <code>123456</code><br />
+        Operator: <code>sagar@javabykiran.com</code> / <code>123456</code><br />
+        Viewer: <code>kimaya@gmail.com</code> / <code>123456</code>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/js/store.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script>
+    if (location.hash === "#logout" || sessionStorage.getItem("justLogout")) {
+      document.getElementById("flash").innerHTML = '<div class="alert alert-ok">Logout successfully</div>';
+      sessionStorage.removeItem("justLogout");
+    }
+    if (UI.currentUser()) location.href = "dashboard.html";
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const res = UI.login(email, password);
+      if (!res.ok) {
+        document.getElementById("flash").innerHTML = '<div class="alert alert-bad">' + res.message + "</div>";
+        return;
+      }
+      location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>
